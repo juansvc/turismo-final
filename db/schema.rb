@@ -22,15 +22,15 @@ ActiveRecord::Schema.define(version: 20150121065843) do
     t.datetime "updated_at"
   end
 
-  add_index "actividads", ["tipo_actividad_id"], name: "index_actividads_on_tipo_actividad_id", using: :btree
+  add_index "actividads", ["tipo_actividad_id"], name: "index_actividads_on_tipo_actividad_id"
 
   create_table "actividads_lugars", force: true do |t|
     t.integer "actividad_id"
     t.integer "lugar_id"
   end
 
-  add_index "actividads_lugars", ["actividad_id"], name: "index_actividads_lugars_on_actividad_id", using: :btree
-  add_index "actividads_lugars", ["lugar_id"], name: "index_actividads_lugars_on_lugar_id", using: :btree
+  add_index "actividads_lugars", ["actividad_id"], name: "index_actividads_lugars_on_actividad_id"
+  add_index "actividads_lugars", ["lugar_id"], name: "index_actividads_lugars_on_lugar_id"
 
   create_table "ciudads", force: true do |t|
     t.string   "nombre_ciudad"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150121065843) do
     t.datetime "updated_at"
   end
 
-  add_index "comentarios", ["lugar_id"], name: "index_comentarios_on_lugar_id", using: :btree
+  add_index "comentarios", ["lugar_id"], name: "index_comentarios_on_lugar_id"
 
   create_table "imagens", force: true do |t|
     t.string   "nombre_imagen"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20150121065843) do
     t.datetime "foto_updated_at"
   end
 
-  add_index "imagens", ["lugar_id"], name: "index_imagens_on_lugar_id", using: :btree
+  add_index "imagens", ["lugar_id"], name: "index_imagens_on_lugar_id"
 
   create_table "lugars", force: true do |t|
     t.string   "nombre_lugar"
@@ -73,16 +73,16 @@ ActiveRecord::Schema.define(version: 20150121065843) do
     t.datetime "updated_at"
   end
 
-  add_index "lugars", ["tipo_lugar_id"], name: "index_lugars_on_tipo_lugar_id", using: :btree
-  add_index "lugars", ["ubicacion_id"], name: "index_lugars_on_ubicacion_id", using: :btree
+  add_index "lugars", ["tipo_lugar_id"], name: "index_lugars_on_tipo_lugar_id"
+  add_index "lugars", ["ubicacion_id"], name: "index_lugars_on_ubicacion_id"
 
   create_table "lugars_transportes", force: true do |t|
     t.integer "lugar_id"
     t.integer "transporte_id"
   end
 
-  add_index "lugars_transportes", ["lugar_id"], name: "index_lugars_transportes_on_lugar_id", using: :btree
-  add_index "lugars_transportes", ["transporte_id"], name: "index_lugars_transportes_on_transporte_id", using: :btree
+  add_index "lugars_transportes", ["lugar_id"], name: "index_lugars_transportes_on_lugar_id"
+  add_index "lugars_transportes", ["transporte_id"], name: "index_lugars_transportes_on_transporte_id"
 
   create_table "nombre_transportes", force: true do |t|
     t.string   "nombre"
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20150121065843) do
     t.datetime "updated_at"
   end
 
-  add_index "transportes", ["nombre_transporte_id"], name: "index_transportes_on_nombre_transporte_id", using: :btree
+  add_index "transportes", ["nombre_transporte_id"], name: "index_transportes_on_nombre_transporte_id"
 
   create_table "ubicacions", force: true do |t|
     t.string   "longitud"
@@ -124,6 +124,6 @@ ActiveRecord::Schema.define(version: 20150121065843) do
     t.datetime "updated_at"
   end
 
-  add_index "ubicacions", ["ciudad_id"], name: "index_ubicacions_on_ciudad_id", using: :btree
+  add_index "ubicacions", ["ciudad_id"], name: "index_ubicacions_on_ciudad_id"
 
 end

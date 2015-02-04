@@ -57,9 +57,6 @@
                           <%= ubicacion.ciudad.nombre_ciudad %>
                           <br>Referencia: 
                           <%= ubicacion.referencia %>
-                          <br>La ubicación del lugar fue creada: 
-                          <%=l ubicacion.created_at, format: :long %>
-                          <br>
                           </li>
                           <div class="clearfix"> </div>
                         </ul>
@@ -70,7 +67,7 @@
             </div>
                       <%= link_to t('.new', :default => t("Nueva ubicación")),
                     new_ubicacion_path,
-                    :class => 'btn btn-primary' %>
+                    :class => 'btn btn-primary', :id => 'boton_nuevo' %>
           </div>
           <div class="clearfix"> </div>
 

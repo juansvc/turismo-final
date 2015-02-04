@@ -16,8 +16,10 @@
       <dt class="label label-default"><%= model_class.human_attribute_name(:fecha) %></dt>
       <dd><pre class="prettyprint"><%= @transporte.fecha %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:nombre_transporte_id) %></dt>
-      <dd><pre class="prettyprint"><%= @transporte.nombre_transporte_id %></pre></dd>
       <dd><pre class="prettyprint"><%= @transporte.nombre_transporte.nombre %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:transporte_creado) %>
+      <dd><pre class="prettyprint"><%=l @transporte.created_at, format: :long %></pre></dd>
+      </dt>
   </dl>
 </div>
 

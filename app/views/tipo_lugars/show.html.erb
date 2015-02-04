@@ -7,6 +7,9 @@
   <dl>
       <dt class="label label-default"><%= model_class.human_attribute_name(:nombre_tipo) %></dt>
       <dd><pre class="prettyprint"><%= @tipo_lugar.nombre_tipo %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:tipo_de_lugar_creado) %>
+      <dd><pre class="prettyprint"><%=l @tipo_lugar.created_at, format: :long %></pre></dd>
+      </dt>
   </dl>
 </div>
 

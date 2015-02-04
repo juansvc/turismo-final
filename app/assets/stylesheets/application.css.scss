@@ -51,6 +51,11 @@ body{
 }
 .label-default{
 	background-color: #50AADF;
+	font-size: 1em;
+}
+.label-default1{
+	background-color: #3788BD;
+	font-size: 0.73em;
 }
 span.menu{
 	display:none;
@@ -96,6 +101,17 @@ span.menu{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74cbfa', endColorstr='#3a73b9',GradientType=0 ); /* IE6-9 */
 
 }
+.form-group{
+	margin-top: 2em;
+	margin-bottom: 2em;
+	text-align: center;
+}
+.page-header{
+	text-align: center;
+}
+#boton_nuevo{
+	margin-left: 7.5em;
+}
 /*----slider----*/
 .banner{
 	background:url(../images/banner.jpg);
@@ -107,7 +123,21 @@ span.menu{
 	background-size: 100% 100%;	
 	position: relative;
 }
-
+dl{
+	margin-top: 6em;
+	margin-left: 10em;
+	margin-right: 10em;
+	background-color: #fefefe;
+	padding: 1em;
+	border-radius: 4px;
+}
+.form-model{
+	margin-top: 2em;
+	margin-left: 19em;
+	margin-right: 8em;
+	background-color: #fefefe;
+	padding: 0.5em;
+}
 /*-- slider-caption --*/
 .slider-caption{
 	position: absolute;
@@ -678,6 +708,13 @@ ul.project_box li.desc p{
     position:relative;
 }
 .ocarousel span{
+}
+pre{
+	margin-top: 0.2em;
+	margin-bottom: 1em;
+	border: 0.08em solid #eee;
+	border-radius: 4px;
+	background-color: #fff;
 }
 .ocarousel span a.prev{
 	background: url(../images/prev.png) no-repeat 0px 0px;

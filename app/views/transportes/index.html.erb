@@ -57,17 +57,24 @@
                           
                           </h5>
                           <br>Lugar de salida:
+                          <br>
                           <%= transporte.lugar_salida %>
+                          <br>
                           <br>Hora de salida: 
+                          <br>
                           <%= transporte.hora_salida %>
+                          <br>
                           <br>Lugar de llegada: 
+                          <br>
                           <%= transporte.lugar_llegada %>
+                          <br>
                           <br>Hora de llegada: 
+                          <br>
                           <%= transporte.hora_llegada %>
+                          <br>
                           <br>Fecha que se llevara acabo el transporte:
+                          <br>
                           <%= transporte.fecha %>
-                          <br>El transporte fue creado: 
-                          <%=l transporte.created_at, format: :long %>
                           <br>
                           </li>
                           <div class="clearfix"> </div>
@@ -79,7 +86,7 @@
             </div>
                       <%= link_to t('.new', :default => t("Nuevo transporte")),
                     new_transporte_path,
-                    :class => 'btn btn-primary' %>
+                    :class => 'btn btn-primary', :id => 'boton_nuevo' %>
           </div>
           <div class="clearfix"> </div>
 

@@ -4,7 +4,11 @@ class LugarsController < ApplicationController
   # GET /lugars
   # GET /lugars.json
   def index
-    @lugars = Lugar.all
+    if params[:search]
+      @lugars = Lugar.search(params[:search])
+    else
+      @lugars = Lugar.all
+    end
   end
 
   # GET /lugars/1

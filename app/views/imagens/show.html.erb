@@ -12,8 +12,11 @@
       <dt class="label label-default"><%= model_class.human_attribute_name(:descripcion_imagen) %></dt>
       <dd><pre class="prettyprint"><%= @imagen.descripcion_imagen %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:lugar_id) %></dt>
-      <dd><pre class="prettyprint"><%= @imagen.lugar_id %></pre></dd>
       <dd><pre class="prettyprint"><%= @imagen.lugar.nombre_lugar %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:imagen_creada) %>
+      <dd><pre class="prettyprint"><%=l @imagen.created_at, format: :long %></pre></dd>
+      </dt>
+                          
   </dl>
 </div>
 

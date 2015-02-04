@@ -1,26 +1,57 @@
 <%- model_class = Lugar -%>
+<head>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+                          function initialize() {
+                            var i = 1;
+                            var mapProp = {
+                              center:new google.maps.LatLng(<%= @lugar.ubicacion.latitud %>, <%= @lugar.ubicacion.longitud %>),
+                              zoom:8,
+                              mapTypeId:google.maps.MapTypeId.ROADMAP
+                            };
+                            var map=new google.maps.Map(document.getElementById("Map"),mapProp);
+                            i++;
+                          }
+                          google.maps.event.addDomListener(window, 'load', initialize);
+                          </script>
+</head>
 <div class="page-header">
-  <h1><%=t '.title', :default => Lugar %></h1>
+  <h1><center><%=t '.title', :default => @lugar.nombre_lugar %></center></h1>
 </div>
 
 <div class="fieldset">
   <dl>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:nombre_lugar) %></dt>
-      <dd><pre class="prettyprint"><%= @lugar.nombre_lugar %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:descripcion_lugar) %></dt>
       <dd><pre class="prettyprint"><%= @lugar.descripcion_lugar %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:telefonos) %></dt>
       <dd><pre class="prettyprint"><%= @lugar.telefonos %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:link) %></dt>
-      <dd><pre class="prettyprint"><%= @lugar.link %></pre></dd>
+      <dd><pre class="prettyprint"><a href="<%= @lugar.link %>"><%= @lugar.link %></a></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:tipo_lugar_id) %>
-      <dd><pre class="prettyprint"><%= @lugar.tipo_lugar_id %></pre></dd>
       <dd><pre class="prettyprint"><%= @lugar.tipo_lugar.nombre_tipo %></pre></dd>
       </dt>
       <dt class="label label-default"><%= model_class.human_attribute_name(:ubicacion_id) %></dt>
-      <dd><pre class="prettyprint"><%= @lugar.ubicacion_id %></pre></dd>
-      <dd><pre class="prettyprint"><%= @lugar.ubicacion.referencia %></pre></dd>
+      <br>
+      <dt class="label label-default1">Ciudad</dt>
       <dd><pre class="prettyprint"><%= @lugar.ubicacion.ciudad.nombre_ciudad %></pre></dd>
+      <dt class="label label-default1">Referencia</dt>
+      <dd><pre class="prettyprint"><%= @lugar.ubicacion.referencia %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:lugar_creado) %>
+      <dd><pre class="prettyprint"><%=l @lugar.created_at, format: :long %></pre></dd>
+      </dt>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:mapa_del_lugar) %>
+      </dt>
+      <dd><pre class="prettyprint"><center><div id="Map" style="width:500px;height:380px;"></div></center></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:acerca_del_lugar) %>
+      <dd><pre class="prettyprint"><center><iframe src="http://www.youtube.com/embed?listType=search&list=<%= @lugar.nombre_lugar %>" width="500px" height="500px"></iframe></center>
+      </pre></dd>
+      </dt>
+
+      <dt class="label label-default"><%= model_class.human_attribute_name(:fotos_del_lugar) %>
+      <dd><pre class="prettyprint"><center><iframe id='iframe' src='http://flickrit.com/slideshowholder.php?height=500&width=500&size=medium&tags=<%= @lugar.nombre_lugar %>&thumbnails=0&transition=0&layoutType=fixed&sort=0' scrolling='no' frameborder='0' width='500px' height='500px'></iframe></center></pre></dd>
+        
+      </dt>
+      
   </dl>
 </div>
 

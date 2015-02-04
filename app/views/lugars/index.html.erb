@@ -20,6 +20,11 @@
           <li><%= link_to 'Actividades', tipo_actividads_path %></li>
             <div class="clearfix"> </div>
         </ul>
+        <br>
+        <%= form_tag(lugars_path, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Buscar acerca de un lugar" %>
+            <%= submit_tag "Buscar", :name => nil %>
+          <% end %>
     </div>
     <!-- /top-nav -->
       <div class="clearfix"> </div>
@@ -31,8 +36,8 @@
        <div id="projects" class="Project">
         <div class="project-section">
             <div class="about-head">
-              <h3>Lugares</h3>
-              <p><%= link_to 'Inicio', lugars_path %> / Lugares</p>
+              <h3>Lugares Turísticos</h3>
+              <p><%= link_to 'Inicio', lugars_path %> / Lugares Turísticos</p>
             </div>
         <div class="project-info">
          <div class="container">
@@ -56,9 +61,6 @@
                           <%= lugar.telefonos %>
                           <br>Enlace: 
                           <a href="<%= lugar.link %>"><%= lugar.link %></a>
-                          <br>Lugar fue creado: 
-                          <%=l lugar.created_at, format: :long %>
-                          <br>
                           </li>
                           <div class="clearfix"> </div>
                         </ul>
@@ -69,7 +71,7 @@
             </div>
                       <%= link_to t('.new', :default => t("Nuevo lugar")),
                     new_lugar_path,
-                    :class => 'btn btn-primary' %>
+                    :class => 'btn btn-primary', :id => 'boton_nuevo' %>
           </div>
           <div class="clearfix"> </div>
 

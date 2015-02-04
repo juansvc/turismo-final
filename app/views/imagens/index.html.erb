@@ -53,9 +53,7 @@
                           <p><%= image_tag imagen.foto.url(:medium) %></p>
                           <br>Descripcción: 
                           <p><%= imagen.descripcion_imagen %></p>
-                          <br>Imagen creada: 
-                          <%=l imagen.created_at, format: :long %>
-                          <br>
+                          
                           </li>
                           <div class="clearfix"> </div>
                         </ul>
@@ -66,7 +64,7 @@
             </div>
                       <%= link_to t('.new', :default => t("Nueva imagen")),
                     new_imagen_path,
-                    :class => 'btn btn-primary' %>
+                    :class => 'btn btn-primary', :id => 'boton_nuevo' %>
           </div>
           <div class="clearfix"> </div>
 

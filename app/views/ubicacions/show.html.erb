@@ -7,7 +7,7 @@
                             var i = 1;
                             var mapProp = {
                               center:new google.maps.LatLng(<%= @ubicacion.latitud %>, <%= @ubicacion.longitud %>),
-                              zoom:5,
+                              zoom:20,
                               mapTypeId:google.maps.MapTypeId.ROADMAP
                             };
                             var map=new google.maps.Map(document.getElementById("Map"),mapProp);
@@ -30,7 +30,6 @@
       <dt class="label label-default"><%= model_class.human_attribute_name(:referencia) %></dt>
       <dd><pre class="prettyprint"><%= @ubicacion.referencia %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:ciudad_id) %></dt>
-      <dd><pre class="prettyprint"><%= @ubicacion.ciudad_id %></pre></dd>
       <dd><pre class="prettyprint"><%= @ubicacion.ciudad.nombre_ciudad %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:nombre_lugar) %>
       </dt>
@@ -38,7 +37,9 @@
       <dt class="label label-default"><%= model_class.human_attribute_name(:mapa) %>
       </dt>
       <dd><pre class="prettyprint"><div id="Map" style="width:500px;height:380px;"></div></pre></dd>
-      
+      <dt class="label label-default"><%= model_class.human_attribute_name(:ubicacion_creada) %>
+      <dd><pre class="prettyprint"><%=l @ubicacion.created_at, format: :long %></pre></dd>
+      </dt>
         
                           
   </dl>

@@ -6,4 +6,9 @@ class Lugar < ActiveRecord::Base
   has_many :comentarios
   has_and_belongs_to_many :actividads
   validates_formatting_of :link, using: :url
+
+  	def self.search(query)
+  		where("nombre_lugar or descripcion_lugar like ?", "%#{query}%") 
+	end
+
 end
