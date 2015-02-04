@@ -1,0 +1,34 @@
+<%= form_for @ubicacion, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :longitud, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :longitud, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :latitud, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :latitud, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :referencia, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :referencia, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ciudad_id, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :ciudad_id, :class => 'text-field form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  ubicacions_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

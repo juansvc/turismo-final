@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_lugar: MyString
+  descripcion_lugar: MyText
+  telefonos: MyText
+  link: MyString
+  tipo_lugar_id: 
+  ubicacion_id: 
+  tipo_lugar_id: 1
+  ubicacion_id: 1
+
+two:
+  nombre_lugar: MyString
+  descripcion_lugar: MyText
+  telefonos: MyText
+  link: MyString
+  tipo_lugar_id: 
+  ubicacion_id: 
+  tipo_lugar_id: 1
+  ubicacion_id: 1

@@ -1,0 +1,118 @@
+<%- model_class = Lugar -%>
+
+<!----- webfonts ------>
+  <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic:400,100,600,300,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+<body>
+<!-- header -->
+  <div class="header">
+    <div class="container">
+      <!-- /logo -->
+      <!-- top-nav -->
+    <div class="top-nav">
+      <span class="menu"> </span>
+        <ul>
+          <li class="active"><%= link_to 'Inicio', lugars_path %></li>
+          <li><%= link_to 'Transportes', transportes_path %></li>
+          <li><%= link_to 'Ubicaciones', ubicacions_path %></li>
+          <li><%= link_to 'Galeria', imagens_path %></li>
+          <li><%= link_to 'Tipo de lugares', tipo_lugars_path %></li>
+          <li><%= link_to 'Actividades', tipo_actividads_path %></li>
+            <div class="clearfix"> </div>
+        </ul>
+    </div>
+    <!-- /top-nav -->
+      <div class="clearfix"> </div>
+    </div>
+    <!-- /header -->
+  </div>
+  <!----- //End-banner---->
+    <!----- /start-about---->
+       <div id="projects" class="Project">
+        <div class="project-section">
+            <div class="about-head">
+              <h3>Lugares</h3>
+              <p><%= link_to 'Inicio', lugars_path %> / Lugares</p>
+            </div>
+        <div class="project-info">
+         <div class="container">
+            <div class="row">
+                <div class="col-md-8 Project-works">
+                   <div class="projects">
+                      <div class="project_grid">
+                      <% i= 0 %>
+                      <% @lugars.each do |lugar| %>
+                      <ul class="project_box">
+                      <li class="mini-post-meta"><time datetime><span class="day"></span><span class="month">
+                      <% i = i+1 %>
+                      <%= i %>
+                      </span></time></li>
+                          <li class="desc"><h5><a href="#">
+                          <%= link_to lugar.nombre_lugar, lugar_path(lugar) %>
+                          </h5>
+                          <p><%= lugar.descripcion_lugar %></p>
+                          
+                          <br>Teléfonos: 
+                          <%= lugar.telefonos %>
+                          <br>Enlace: 
+                          <a href="<%= lugar.link %>"><%= lugar.link %></a>
+                          <br>Lugar fue creado: 
+                          <%=l lugar.created_at, format: :long %>
+                          <br>
+                          </li>
+                          <div class="clearfix"> </div>
+                        </ul>
+                    <% end %>
+                      </div>
+                   </div>
+                </div>
+            </div>
+                      <%= link_to t('.new', :default => t("Nuevo lugar")),
+                    new_lugar_path,
+                    :class => 'btn btn-primary' %>
+          </div>
+          <div class="clearfix"> </div>
+
+
+      </div>
+    </div>
+  </div>
+        <div class="our-projects">  
+
+       <div id="services" class="services">
+        <div class="container">
+            <div class="About-head">
+              <h2>Informacion de lugares que deber&iacute;as visitar</h2>
+            </div>
+          <div class="service-grids">
+              <div class="col-md-3 service-grid">
+                 <%= image_tag "icono1.png", :alt => "Lugares", :title => "Lugares"%>
+                <h3><%= link_to 'Lugares Turisticos', lugars_path %></h3>
+              </div>
+                <div class="col-md-3 service-grid">
+                <%= image_tag "icono2.png", :alt => "Transportes", :title => "Transportes"%>
+                <h3><%= link_to 'Transportes', transportes_path %></h3>
+              </div>
+              <div class="col-md-3 service-grid">
+              <%= image_tag "icono3.png", :alt => "Galeria", :title => "Galeria"%>
+                <h3><%= link_to 'Galeria', imagens_path %></h3>
+              </div>
+              <div class="col-md-3 service-grid">
+              <%= image_tag "icono4.png", :alt => "Ubicaciones", :title => "Ubicaciones"%>
+                <h3><%= link_to 'Ubicaciones', ubicacions_path %></h3>
+              </div>
+            <div class="clearfix"> </div>
+          </div>
+        </div>
+       </div>
+  <!----- //End-services---->
+    <!----- /start-footer---->
+        <div class="footer">
+          <div class="container">
+            <div class="copy-right">
+              <p> 2015 <a href="http://twitter.com/ju4n5vc">LZG</a></p>
+               <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><br /><span class="final" xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">Turismo Ecuador por</span> <span class="final" xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Juan Vivanco bajo licencia</span> <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons.</a>.
+            </div>
+            </div>                
+          </div>
+</body>

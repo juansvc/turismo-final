@@ -1,0 +1,34 @@
+<%= form_for @actividad, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :descripcion, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :descripcion, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :hora_inicio, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.time_select :hora_inicio, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :hora_fin, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.time_select :hora_fin, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :tipo_actividad_id, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :tipo_actividad_id, :class => 'text-field form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  actividads_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

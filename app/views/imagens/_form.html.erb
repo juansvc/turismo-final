@@ -1,0 +1,18 @@
+<%= form_for @imagen, :html => {:multipart => true} do |f| %> 
+  <p>  
+    <%= f.label :nombre_imagen %><br />  
+    <%= f.text_field :nombre_imagen %>  
+  </p>  
+  <p>  
+    <%= f.file_field :foto %>  
+  </p>  
+    <p>  
+    <%= f.label :descripcion_imagen %><br />  
+    <%= f.text_field :descripcion_imagen %>  
+  </p>  
+    <p>  
+    <%= f.label :lugar_id %><br />  
+    <%= f.text_field :lugar_id %>  
+  </p>
+  <p><%= f.submit %></p>  
+<% end %>  

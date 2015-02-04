@@ -1,0 +1,42 @@
+<%- model_class = Actividad -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Actividad %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:descripcion) %></th>
+      <th><%= model_class.human_attribute_name(:hora_inicio) %></th>
+      <th><%= model_class.human_attribute_name(:hora_fin) %></th>
+      <th><%= model_class.human_attribute_name(:tipo_actividad_id) %></th>
+      <th><%= model_class.human_attribute_name(:creado_el) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @actividads.each do |actividad| %>
+      <tr>
+        <td><%= actividad.id %></td>
+        <td><%= actividad.descripcion %></td>
+        <td><%= actividad.hora_inicio %></td>
+        <td><%= actividad.hora_fin %></td>
+        <td><%= actividad.tipo_actividad_id %></td>
+        <td><%=l actividad.created_at, format: :long %></td>
+        <td>
+          <%= link_to actividad_path(actividad), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to actividad_path(actividad), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('Eliminar')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("Nuevo")),
+            new_actividad_path,
+            :class => 'btn btn-primary' %>

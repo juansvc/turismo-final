@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyText
+  hora_inicio: 2015-01-21 05:56:30
+  hora_fin: 2015-01-21 05:56:30
+  tipo_actividad_id: 
+  tipo_actividad_id: 1
+
+two:
+  descripcion: MyText
+  hora_inicio: 2015-01-21 05:56:30
+  hora_fin: 2015-01-21 05:56:30
+  tipo_actividad_id: 
+  tipo_actividad_id: 1

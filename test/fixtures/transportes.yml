@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lugar_salida: MyText
+  lugar_llegada: MyText
+  hora_salida: 2015-01-21 05:56:24
+  hora_llegada: 2015-01-21 05:56:24
+  fecha: 2015-01-21
+  nombre_transporte_id: 
+  nombre_transporte_id: 1
+
+two:
+  lugar_salida: MyText
+  lugar_llegada: MyText
+  hora_salida: 2015-01-21 05:56:24
+  hora_llegada: 2015-01-21 05:56:24
+  fecha: 2015-01-21
+  nombre_transporte_id: 
+  nombre_transporte_id: 1
