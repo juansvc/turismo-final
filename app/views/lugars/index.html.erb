@@ -3,6 +3,8 @@
 <!----- webfonts ------>
   <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic:400,100,600,300,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
+  <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 <body>
 <!-- header -->
   <div class="header">
@@ -21,10 +23,7 @@
             <div class="clearfix"> </div>
         </ul>
         <br>
-        <%= form_tag(lugars_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Buscar acerca de un lugar" %>
-            <%= submit_tag "Buscar", :name => nil %>
-          <% end %>
+        
     </div>
     <!-- /top-nav -->
       <div class="clearfix"> </div>
@@ -41,6 +40,10 @@
             </div>
         <div class="project-info">
          <div class="container">
+        <%= form_tag(lugars_path, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Buscar acerca de un lugar", :class => 'text-field form-control' %>
+            <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-default' %>
+          <% end %>
             <div class="row">
                 <div class="col-md-8 Project-works">
                    <div class="projects">
@@ -53,16 +56,18 @@
                       <%= i %>
                       </span></time></li>
                           <li class="desc"><h5><a href="#">
-                          <%= link_to lugar.nombre_lugar, lugar_path(lugar) %>
+                          <a href="<%= lugar_path(lugar) %>" target="_blank"><%= lugar.nombre_lugar %></a>
                           </h5>
                           <p><%= lugar.descripcion_lugar %></p>
                           
                           <br>Teléfonos: 
                           <%= lugar.telefonos %>
                           <br>Enlace: 
-                          <a href="<%= lugar.link %>"><%= lugar.link %></a>
+                          <a href="<%= lugar.link %>" target="_blank"><%= lugar.link %></a>
                           </li>
                           <div class="clearfix"> </div>
+                          <br><br>
+                          <a href="<%= lugar_path(lugar) %>" class="btn btn-primary" id="boton_nuevo" target="_blank">Ver más</a>
                         </ul>
                     <% end %>
                       </div>

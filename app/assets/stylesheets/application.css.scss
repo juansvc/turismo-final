@@ -38,7 +38,7 @@
 
 body{
   font-family: 'Open Sans', sans-serif;
-  background: #fff;
+  background: #fefefe;
 }
 /*-- header --*/
 .header {
@@ -124,7 +124,7 @@ span.menu{
 	position: relative;
 }
 dl{
-	margin-top: 6em;
+	margin-top: 1em;
 	margin-left: 10em;
 	margin-right: 10em;
 	background-color: #fefefe;
@@ -620,6 +620,9 @@ ul.project_box li.mini-post-meta span.month {
 }
 ul.project_box li.desc{
 	overflow:hidden;
+	background-color: #fff;
+	padding: 0.4em;
+	border-radius: 0.3em;
 }
 ul.project_box li.desc h5 a{
 	color:#555;

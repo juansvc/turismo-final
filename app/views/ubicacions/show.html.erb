@@ -5,12 +5,17 @@
 <script>
                           function initialize() {
                             var i = 1;
+                            var myLatlng = new google.maps.LatLng(<%= @ubicacion.latitud %>, <%= @ubicacion.longitud %>)
                             var mapProp = {
-                              center:new google.maps.LatLng(<%= @ubicacion.latitud %>, <%= @ubicacion.longitud %>),
-                              zoom:20,
+                              zoom:14,
+                              center: myLatlng,
                               mapTypeId:google.maps.MapTypeId.ROADMAP
                             };
                             var map=new google.maps.Map(document.getElementById("Map"),mapProp);
+                            var marker = new google.maps.Marker({
+                                position: myLatlng,
+                                map: map
+                            });
                             i++;
                           }
                           google.maps.event.addDomListener(window, 'load', initialize);

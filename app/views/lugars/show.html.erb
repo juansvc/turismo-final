@@ -4,12 +4,17 @@
 <script>
                           function initialize() {
                             var i = 1;
+                            var myLatlng = new google.maps.LatLng(<%= @lugar.ubicacion.latitud %>, <%= @lugar.ubicacion.longitud %>)
                             var mapProp = {
-                              center:new google.maps.LatLng(<%= @lugar.ubicacion.latitud %>, <%= @lugar.ubicacion.longitud %>),
-                              zoom:8,
+                              zoom:18,
+                              center: myLatlng,
                               mapTypeId:google.maps.MapTypeId.ROADMAP
                             };
                             var map=new google.maps.Map(document.getElementById("Map"),mapProp);
+                            var marker = new google.maps.Marker({
+                                position: myLatlng,
+                                map: map
+                            });
                             i++;
                           }
                           google.maps.event.addDomListener(window, 'load', initialize);
@@ -21,6 +26,10 @@
 
 <div class="fieldset">
   <dl>
+        <dt class="label label-default"><%= model_class.human_attribute_name(:fotos_del_lugar) %>
+      <dd><pre class="prettyprint"><center><iframe id='iframe' src='http://flickrit.com/slideshowholder.php?height=500&width=900&size=medium&tags=<%= @lugar.nombre_lugar %>&thumbnails=0&transition=0&layoutType=fixed&sort=0' scrolling='no' frameborder='0' width='900px' height='500px'></iframe></center></pre></dd>
+        
+      </dt>
       <dt class="label label-default"><%= model_class.human_attribute_name(:descripcion_lugar) %></dt>
       <dd><pre class="prettyprint"><%= @lugar.descripcion_lugar %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:telefonos) %></dt>
@@ -41,16 +50,13 @@
       </dt>
       <dt class="label label-default"><%= model_class.human_attribute_name(:mapa_del_lugar) %>
       </dt>
-      <dd><pre class="prettyprint"><center><div id="Map" style="width:500px;height:380px;"></div></center></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:acerca_del_lugar) %>
-      <dd><pre class="prettyprint"><center><iframe src="http://www.youtube.com/embed?listType=search&list=<%= @lugar.nombre_lugar %>" width="500px" height="500px"></iframe></center>
+      <dd><pre class="prettyprint"><center><div id="Map" style="width:700px;height:380px;"></div></center></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:videos_acerca_del_lugar) %>
+      <dd><pre class="prettyprint"><center><iframe src="http://www.youtube.com/embed?listType=search&list=<%= @lugar.nombre_lugar %>" width="700px" height="380px"></iframe></center>
       </pre></dd>
       </dt>
 
-      <dt class="label label-default"><%= model_class.human_attribute_name(:fotos_del_lugar) %>
-      <dd><pre class="prettyprint"><center><iframe id='iframe' src='http://flickrit.com/slideshowholder.php?height=500&width=500&size=medium&tags=<%= @lugar.nombre_lugar %>&thumbnails=0&transition=0&layoutType=fixed&sort=0' scrolling='no' frameborder='0' width='500px' height='500px'></iframe></center></pre></dd>
-        
-      </dt>
+
       
   </dl>
 </div>
