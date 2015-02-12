@@ -15,7 +15,7 @@
 #   database: turismo_development
 #   pool: 5
 #   username: root
-#   password: culito767
+#   password: #password#
 
 # test:
 #   adapter: mysql2
@@ -24,7 +24,7 @@
 #   database: turismo_test
 #   pool: 5
 #   username: root
-#   password: culito767
+#   password: #password#
 
 # production:
 #   adapter: mysql2
