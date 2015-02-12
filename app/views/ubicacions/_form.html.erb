@@ -18,9 +18,9 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :ciudad_id, :class => 'control-label col-md-2' %>
+    <%= f.label :ciudad, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.number_field :ciudad_id, :class => 'text-field form-control' %>
+      <%= f.collection_select :ciudad, Ciudad.all, :id, :nombre_ciudad %>
     </div>
   </div>
 

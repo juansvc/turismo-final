@@ -17,7 +17,7 @@
           <li><%= link_to 'Ubicaciones', ubicacions_path %></li>
           <li class="active"><%= link_to 'Galeria', imagens_path %></li>
           <li><%= link_to 'Tipo de lugares', tipo_lugars_path %></li>
-          <li><%= link_to 'Actividades', tipo_actividads_path %></li>
+          <li><%= link_to 'Actividades', actividads_path %></li>
             <div class="clearfix"> </div>
         </ul>
     </div>
@@ -53,7 +53,7 @@
                           <p><%= image_tag imagen.foto.url(:medium) %></p>
                           <br>Descripcción: 
                           <p><%= imagen.descripcion_imagen %></p>
-                          
+                          <br>Lugar: <a href="<%= lugar_path(ubicacion.lugar) %>" target="_blank"><%= ubicacion.lugar.nombre_lugar %></a>
                           </li>
                           <div class="clearfix"> </div>
                         </ul>

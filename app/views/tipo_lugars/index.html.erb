@@ -16,7 +16,7 @@
           <li><%= link_to 'Ubicaciones', ubicacions_path %></li>
           <li><%= link_to 'Galeria', imagens_path %></li>
           <li class="active"><%= link_to 'Tipo de lugares', tipo_lugars_path %></li>
-          <li><%= link_to 'Actividades', tipo_actividads_path %></li>
+          <li><%= link_to 'Actividades', actividads_path %></li>
             <div class="clearfix"> </div>
         </ul>
     </div>
@@ -49,8 +49,10 @@
                           <li class="desc"><h5><a href="#">
                           <%= link_to tipo_lugar.nombre_tipo, tipo_lugar_path(tipo_lugar) %>
                           </h5>
+                          <iframe id='iframe' src='http://flickrit.com/slideshowholder.php?height=200&width=400&size=medium&tags=<%= tipo_lugar.nombre_tipo %>&thumbnails=0&transition=0&layoutType=fixed&sort=0' scrolling='no' frameborder='0' width='400px' height='200px'></iframe>
                           </li>
                           <div class="clearfix"> </div>
+
                         </ul>
                     <% end %>
                       </div>

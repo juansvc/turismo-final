@@ -1,41 +1,117 @@
 <%- model_class = Actividad -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => Actividad %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th><%= model_class.human_attribute_name(:descripcion) %></th>
-      <th><%= model_class.human_attribute_name(:hora_inicio) %></th>
-      <th><%= model_class.human_attribute_name(:hora_fin) %></th>
-      <th><%= model_class.human_attribute_name(:tipo_actividad_id) %></th>
-      <th><%= model_class.human_attribute_name(:creado_el) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @actividads.each do |actividad| %>
-      <tr>
-        <td><%= actividad.id %></td>
-        <td><%= actividad.descripcion %></td>
-        <td><%= actividad.hora_inicio %></td>
-        <td><%= actividad.hora_fin %></td>
-        <td><%= actividad.tipo_actividad_id %></td>
-        <td><%=l actividad.created_at, format: :long %></td>
-        <td>
-          <%= link_to actividad_path(actividad), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-            <%= glyph 'info-sign' %>
-            <%= glyph 'pencil' %>
-          <%- end -%>
-          <%= link_to actividad_path(actividad), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('Eliminar')) }" do %>
-            <%= glyph 'remove' %>
-          <%- end -%>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!----- webfonts ------>
+  <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic:400,100,600,300,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+<body>
+<!-- header -->
+  <div class="header">
+    <div class="container">
+      <!-- /logo -->
+      <!-- top-nav -->
+    <div class="top-nav">
+      <span class="menu"> </span>
+        <ul>
+          <li><%= link_to 'Inicio', lugars_path %></li>
+          <li><%= link_to 'Transportes', transportes_path %></li>
+          <li><%= link_to 'Ubicaciones', ubicacions_path %></li>
+          <li><%= link_to 'Galeria', imagens_path %></li>
+          <li><%= link_to 'Tipo de lugares', tipo_lugars_path %></li>
+          <li class="active"><%= link_to 'Actividades', actividads_path %></li>
+            <div class="clearfix"> </div>
+        </ul>
+    </div>
+    <!-- /top-nav -->
+      <div class="clearfix"> </div>
+    </div>
+    <!-- /header -->
+  </div>
+  <!----- //End-banner---->
+    <!----- /start-about---->
+       <div id="projects" class="Project">
+        <div class="project-section">
+            <div class="about-head">
+              <h3>Actividades</h3>
+              <p><%= link_to 'Inicio', lugars_path %> / Actividades</p>
+            </div>
+        <div class="project-info">
+         <div class="container">
+            <div class="row">
+                <div class="col-md-8 Project-works">
+                   <div class="projects">
+                      <div class="project_grid">
+                      <% i= 0 %>
+                      <% @actividads.each do |actividad| %>
+                      <ul class="project_box">
+                      <li class="mini-post-meta"><time datetime><span class="day"></span><span class="month">
+                      <% i = i+1 %>
+                      <%= i %>
+                      </span></time></li>
+                          <li class="desc"><h5>
+                          <a href="<%= actividad_path(actividad) %>" target="_blank"><%= actividad.tipo_actividad.nombre %></a>
+                          </h5>
+                          <br>Descripcción de la actividad:
+                          <%= actividad.descripcion %>
+                          <br>
+                          Esta actividad comienza a las: <%= actividad.hora_inicio %>, y termina a las: <%= actividad.hora_fin %>
+                          <br>
+                          <br>Actividad creada: 
+                          <%=l actividad.created_at, format: :long %>
+                          <br>
+                          </li>
+                          <div class="clearfix"> </div>
+                        </ul>
+                    <% end %>
+                      </div>
+                   </div>
+                </div>
+            </div>
+                      <%= link_to t('.new', :default => t("Nueva Actividad")),
+                    new_actividad_path,
+                    :class => 'btn btn-primary', :id => 'boton_nuevo' %>
+          </div>
+          <div class="clearfix"> </div>
 
-<%= link_to t('.new', :default => t("Nuevo")),
-            new_actividad_class => 'btn btn-primary', :id => 'boton_nuevo'
+
+      </div>
+    </div>
+  </div>
+        <div class="our-projects">  
+
+       <div id="services" class="services">
+        <div class="container">
+            <div class="About-head">
+              <h2>Informacion de lugares que deber&iacute;as visitar</h2>
+            </div>
+          <div class="service-grids">
+              <div class="col-md-3 service-grid">
+                 <%= image_tag "icono1.png", :alt => "Lugares", :title => "Lugares"%>
+                <h3><%= link_to 'Lugares Turisticos', lugars_path %></h3>
+              </div>
+                <div class="col-md-3 service-grid">
+                <%= image_tag "icono2.png", :alt => "Transportes", :title => "Transportes"%>
+                <h3><%= link_to 'Transportes', transportes_path %></h3>
+              </div>
+              <div class="col-md-3 service-grid">
+              <%= image_tag "icono3.png", :alt => "Galeria", :title => "Galeria"%>
+                <h3><%= link_to 'Galeria', imagens_path %></h3>
+              </div>
+              <div class="col-md-3 service-grid">
+              <%= image_tag "icono4.png", :alt => "Ubicaciones", :title => "Ubicaciones"%>
+                <h3><%= link_to 'Ubicaciones', ubicacions_path %></h3>
+              </div>
+            <div class="clearfix"> </div>
+          </div>
+        </div>
+       </div>
+  <!----- //End-services---->
+    <!----- /start-footer---->
+        <div class="footer">
+          <div class="container">
+            <div class="copy-right">
+              <p> 2015 <a href="http://twitter.com/ju4n5vc">LZG</a></p>
+               <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><br /><span class="final" xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">Turismo Ecuador por</span> <span class="final" xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Juan Vivanco bajo licencia</span> <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons.</a>.
+            </div>
+            </div>                
+          </div>
+</body>
+        

@@ -16,7 +16,7 @@
           <li class="active"><%= link_to 'Ubicaciones', ubicacions_path %></li>
           <li><%= link_to 'Galeria', imagens_path %></li>
           <li><%= link_to 'Tipo de lugares', tipo_lugars_path %></li>
-          <li><%= link_to 'Actividades', tipo_actividads_path %></li>
+          <li><%= link_to 'Actividades', actividads_path %></li>
             <div class="clearfix"> </div>
         </ul>
     </div>
@@ -47,7 +47,7 @@
                       <%= i %>
                       </span></time></li>
                           <li class="desc"><h5><a href="#">
-                          <%= link_to ubicacion.lugar.nombre_lugar, ubicacion_path(ubicacion) %>
+                          <a href="<%= lugar_path(ubicacion.lugar) %>" target="_blank"><%= ubicacion.lugar.nombre_lugar %></a>
                           </h5>
                           <br>Longitud: 
                           <%= ubicacion.longitud %>

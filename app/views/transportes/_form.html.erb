@@ -30,9 +30,9 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :nombre_transporte_id, :class => 'control-label col-md-2' %>
+    <%= f.label :compañia_de_transporte, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.number_field :nombre_transporte_id, :class => 'text-field form-control' %>
+      <%= f.collection_select :nombre_transporte, NombreTransporte.all, :id, :nombre %>
     </div>
   </div>
 
